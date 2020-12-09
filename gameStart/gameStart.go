@@ -2,7 +2,8 @@ package gamestart
 
 import (
 	"fmt"
-	"log"
+	"strconv"
+	"unicode"
 
 	"github.com/sejalnaik/tic-tac-toe/game"
 	gamestatus "github.com/sejalnaik/tic-tac-toe/gameStatus"
@@ -12,34 +13,31 @@ import (
 
 // Start to start the game
 func Start() {
-	fmt.Print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
 	// take size input form user
-	fmt.Println("Enter size of the game")
+	var sizeStr string = "8"
 	var size int
-	_, errorSize := fmt.Scan(&size)
-	if errorSize != nil {
-		log.Fatal("Error occurred:", errorSize)
+	fmt.Println("Enter size of the board")
+	for okSize := true; okSize; okSize = (okSize != isSizeNumber(sizeStr)) {
+		if isSizeNumber(sizeStr) == false {
+			fmt.Print(("Please enter only numbers"))
+		}
 	}
 
-	// take players info form users
+	size, _ = strconv.Atoi(sizeStr)
+
 	players := make([]*player.Player, 2)
-	fmt.Println("Enter player 1 name")
-	var name1 string
-	_, errorName1 := fmt.Scan(&name1)
-	if errorName1 != nil {
-		log.Fatal("Error occurred:", errorName1)
-	}
-	player1 := player.NewPlayer(name1)
-	player1.SetMark(mark.X)
 
-	fmt.Println("Enter player 2 name")
-	var name2 string
-	_, errorName2 := fmt.Scan(&name2)
-	if errorName2 != nil {
-		log.Fatal("Error occurred:", errorName2)
-	}
-	player2 := player.NewPlayer(name2)
+	// take player1 info form user
+	player1 := player.NewPlayer()
+	player1.SetMark(mark.X)
+	player1.SetID(1)
+	setPlayer(player1)
+
+	// take player2 info form user
+	player2 := player.NewPlayer()
 	player2.SetMark(mark.O)
+	player2.SetID(2)
+	setPlayer(player2)
 
 	// put players in a slice
 	players[0] = player1
@@ -57,18 +55,25 @@ func Start() {
 				fmt.Println("Cell taken, enter some other board number")
 				displayGame(myGame)
 			}
-			fmt.Println(myGame.GetCurrentPlayer().GetName(), "play", myGame.GetCurrentPlayer().GetMark())
+			fmt.Println("Player", myGame.GetCurrentPlayer().GetID(), ":", myGame.GetCurrentPlayer().GetName(), "play", myGame.GetCurrentPlayer().GetMark())
 			fmt.Println("Enter the cell number to be marked")
-			var userCellInput int
-			_, errorUserCellInput := fmt.Scan(&userCellInput)
+			var userCellInputStr string
+
+			_, errorUserCellInput := fmt.Scan(&userCellInputStr)
 			if errorUserCellInput != nil {
-				log.Fatal("Error occurred:", errorUserCellInput)
+				fmt.Println("Error occurred:", errorUserCellInput)
 			}
-			if userCellInput > size*size || userCellInput < 1 {
+			userCellInputInt, err := strconv.Atoi(userCellInputStr)
+			if err != nil {
 				fmt.Println("Please enter a number between 1 and ", size*size)
 				continue
 			}
-			myGame.Play(userCellInput)
+
+			if userCellInputInt > size*size || userCellInputInt < 1 {
+				fmt.Println("Please enter a number between 1 and ", size*size)
+				continue
+			}
+			myGame.Play(userCellInputInt)
 		}
 		displayGame(myGame)
 		if myGame.GetGameStatus() == gamestatus.WIN {
@@ -76,7 +81,7 @@ func Start() {
 			return
 		}
 		if myGame.GetGameStatus() == gamestatus.DRAW {
-			fmt.Println("Noone wins, its a draw")
+			fmt.Println("No one wins, its a draw")
 			return
 		}
 	}
@@ -90,4 +95,36 @@ func displayGame(tempGame *game.Game) {
 		}
 		fmt.Println()
 	}
+}
+
+func isLetter(s string) bool {
+	for _, r := range s {
+		if !unicode.IsLetter(r) {
+			return false
+		}
+	}
+	return true
+}
+
+func setPlayer(player *player.Player) {
+	var name = "a"
+	for okName := true; okName; okName = (okName != isLetter(name)) {
+		if isLetter(name) == false {
+			fmt.Println("Please enter only alphabets")
+		}
+		fmt.Println("Enter player", player.GetID(), "name")
+		_, errorName1 := fmt.Scan(&name)
+		if errorName1 != nil {
+			fmt.Print("Error occurred:", errorName1)
+		}
+		player.SetName(name)
+	}
+}
+
+func isSizeNumber(str string) bool {
+	_, err := strconv.Atoi(str)
+	if err != nil {
+		return false
+	}
+	return true
 }
