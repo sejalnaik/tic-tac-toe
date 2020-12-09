@@ -2,7 +2,8 @@ package cell
 
 import (
 	"testing"
-	"tic-tac-toe/mark"
+
+	"github.com/sejalnaik/tic-tac-toe/mark"
 )
 
 func TestNewCell(t *testing.T) {

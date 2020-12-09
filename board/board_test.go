@@ -3,7 +3,8 @@ package board
 import (
 	"fmt"
 	"testing"
-	"tic-tac-toe/mark"
+
+	"github.com/sejalnaik/tic-tac-toe/mark"
 )
 
 func TestNewBoard(t *testing.T) {

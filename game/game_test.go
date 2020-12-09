@@ -3,8 +3,9 @@ package game
 import (
 	"fmt"
 	"testing"
-	"tic-tac-toe/mark"
-	"tic-tac-toe/player"
+
+	"github.com/sejalnaik/tic-tac-toe/mark"
+	"github.com/sejalnaik/tic-tac-toe/player"
 )
 
 func TestAddXO(t *testing.T) {

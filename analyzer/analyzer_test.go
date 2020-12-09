@@ -2,7 +2,8 @@ package analyzer
 
 import (
 	"testing"
-	"tic-tac-toe/board"
+
+	"github.com/sejalnaik/tic-tac-toe/board"
 )
 
 func TestCheckRowsMatch(t *testing.T) {
