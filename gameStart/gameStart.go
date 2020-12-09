@@ -12,6 +12,7 @@ import (
 
 // Start to start the game
 func Start() {
+	fmt.Print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
 	// take size input form user
 	fmt.Println("Enter size of the game")
 	var size int
