@@ -11,7 +11,7 @@ type Cell struct {
 }
 
 //NewCell is for craeting new cell
-func (c *Cell) NewCell() *Cell {
+func NewCell() *Cell {
 	var cellTest = &Cell{
 		mark: mark.BLANK,
 	}
