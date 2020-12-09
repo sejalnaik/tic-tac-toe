@@ -63,6 +63,10 @@ func Start() {
 			if errorUserCellInput != nil {
 				log.Fatal("Error occurred:", errorUserCellInput)
 			}
+			if userCellInput > size*size || userCellInput < 1 {
+				fmt.Println("Please enter a number between 1 and ", size*size)
+				continue
+			}
 			myGame.Play(userCellInput)
 		}
 		displayGame(myGame)
