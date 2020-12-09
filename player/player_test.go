@@ -2,7 +2,8 @@ package player
 
 import (
 	"testing"
-	"tic-tac-toe/mark"
+
+	"github.com/sejalnaik/tic-tac-toe/mark"
 )
 
 func TestGetName(t *testing.T) {
