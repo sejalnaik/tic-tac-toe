@@ -3,10 +3,11 @@ package gamestart
 import (
 	"fmt"
 	"log"
-	"tic-tac-toe/game"
-	gamestatus "tic-tac-toe/gameStatus"
-	"tic-tac-toe/mark"
-	"tic-tac-toe/player"
+
+	"github.com/sejalnaik/tic-tac-toe/game"
+	gamestatus "github.com/sejalnaik/tic-tac-toe/gameStatus"
+	"github.com/sejalnaik/tic-tac-toe/mark"
+	"github.com/sejalnaik/tic-tac-toe/player"
 )
 
 // Start to start the game

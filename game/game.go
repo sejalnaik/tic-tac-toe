@@ -1,10 +1,10 @@
 package game
 
 import (
-	"tic-tac-toe/analyzer"
-	"tic-tac-toe/board"
-	gamestatus "tic-tac-toe/gameStatus"
-	"tic-tac-toe/player"
+	"github.com/sejalnaik/tic-tac-toe/analyzer"
+	"github.com/sejalnaik/tic-tac-toe/board"
+	gamestatus "github.com/sejalnaik/tic-tac-toe/gameStatus"
+	"github.com/sejalnaik/tic-tac-toe/player"
 )
 
 // Game is to create game type

@@ -2,7 +2,7 @@
 package cell
 
 import (
-	"tic-tac-toe/mark"
+	"github.com/sejalnaik/tic-tac-toe/mark"
 )
 
 // Cell is defined

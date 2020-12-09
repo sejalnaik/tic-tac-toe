@@ -1,7 +1,7 @@
 package analyzer
 
 import (
-	"tic-tac-toe/board"
+	"github.com/sejalnaik/tic-tac-toe/board"
 )
 
 // Analyzer to create anylyzer structs

@@ -1,8 +1,8 @@
 package board
 
 import (
-	"tic-tac-toe/cell"
-	"tic-tac-toe/mark"
+	"github.com/sejalnaik/tic-tac-toe/cell"
+	"github.com/sejalnaik/tic-tac-toe/mark"
 )
 
 // Board struct
