@@ -14,16 +14,26 @@ import (
 // Start to start the game
 func Start() {
 	// take size input form user
-	var sizeStr string = "8"
+	var sizeStr string
 	var size int
-	fmt.Println("Enter size of the board")
-	for okSize := true; okSize; okSize = (okSize != isSizeNumber(sizeStr)) {
-		if isSizeNumber(sizeStr) == false {
-			fmt.Print(("Please enter only numbers"))
+	fmt.Println("Enter the size of the board(should be 3 or more)")
+	for {
+		_, err := fmt.Scan(&sizeStr)
+		if err != nil {
+			fmt.Println("Error:", err, "Please enter the size again")
+			continue
 		}
+		size, err = strconv.Atoi(sizeStr)
+		if err != nil {
+			fmt.Println("Enter a valid number")
+			continue
+		}
+		if size < 3 {
+			fmt.Println("Please select a size of 3 or more")
+			continue
+		}
+		break
 	}
-
-	size, _ = strconv.Atoi(sizeStr)
 
 	players := make([]*player.Player, 2)
 
@@ -61,11 +71,12 @@ func Start() {
 
 			_, errorUserCellInput := fmt.Scan(&userCellInputStr)
 			if errorUserCellInput != nil {
-				fmt.Println("Error occurred:", errorUserCellInput)
+				fmt.Println("Error occurred:", errorUserCellInput, "Please enter cell number again")
+				continue
 			}
 			userCellInputInt, err := strconv.Atoi(userCellInputStr)
 			if err != nil {
-				fmt.Println("Please enter a number between 1 and ", size*size)
+				fmt.Println("Please enter a valid number between 1 and ", size*size)
 				continue
 			}
 
@@ -97,6 +108,7 @@ func displayGame(tempGame *game.Game) {
 	}
 }
 
+// to check if the string consists of only alphabets
 func isLetter(s string) bool {
 	for _, r := range s {
 		if !unicode.IsLetter(r) {
@@ -106,6 +118,7 @@ func isLetter(s string) bool {
 	return true
 }
 
+// setting the player info by taking user input
 func setPlayer(player *player.Player) {
 	var name = "a"
 	for okName := true; okName; okName = (okName != isLetter(name)) {
@@ -119,12 +132,4 @@ func setPlayer(player *player.Player) {
 		}
 		player.SetName(name)
 	}
-}
-
-func isSizeNumber(str string) bool {
-	_, err := strconv.Atoi(str)
-	if err != nil {
-		return false
-	}
-	return true
 }

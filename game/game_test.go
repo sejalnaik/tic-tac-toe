@@ -10,8 +10,8 @@ import (
 
 func TestAddXO(t *testing.T) {
 
-	player1 := player.NewPlayer("sejal")
-	player2 := player.NewPlayer("rachel")
+	player1 := player.NewPlayer()
+	player2 := player.NewPlayer()
 
 	players := make([]*player.Player, 2)
 
@@ -40,8 +40,8 @@ func TestAddXO(t *testing.T) {
 }
 
 func TestPlay(t *testing.T) {
-	player1 := player.NewPlayer("sejal")
-	player2 := player.NewPlayer("rachel")
+	player1 := player.NewPlayer()
+	player2 := player.NewPlayer()
 
 	players := make([]*player.Player, 2)
 

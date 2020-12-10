@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetName(t *testing.T) {
-	player := NewPlayer("sejal")
+	player := NewPlayer()
 	actual := player.GetName()
 	expected := "sejal"
 
@@ -17,7 +17,7 @@ func TestGetName(t *testing.T) {
 }
 
 func TestSetMark(t *testing.T) {
-	player := NewPlayer("sejal")
+	player := NewPlayer()
 	player.SetMark(mark.O)
 	actual := player.GetMark()
 	expected := "O"
