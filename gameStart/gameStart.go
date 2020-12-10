@@ -47,7 +47,13 @@ func Start() {
 	player2 := player.NewPlayer()
 	player2.SetMark(mark.O)
 	player2.SetID(2)
+player2AskNameAgain:
 	setPlayer(player2)
+
+	if player2.GetName() == player1.GetName() {
+		fmt.Println("Same names are not allowed, please enter a different name")
+		goto player2AskNameAgain
+	}
 
 	// put players in a slice
 	players[0] = player1
