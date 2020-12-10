@@ -13,7 +13,7 @@ type Cell struct {
 //NewCell is for craeting new cell
 func NewCell() *Cell {
 	var cellTest = &Cell{
-		mark: mark.BLANK,
+		mark: mark.Blank,
 	}
 	return cellTest
 }
@@ -30,7 +30,7 @@ func (c *Cell) SetMark(mark string) {
 
 //CheckCellTaken is for checking whether the mark is blank or not
 func (c *Cell) CheckCellTaken() bool {
-	if c.mark != mark.BLANK {
+	if c.mark != mark.Blank {
 		return true
 	}
 	return false

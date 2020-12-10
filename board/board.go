@@ -45,7 +45,7 @@ func (b *Board) GetCells() [][]*cell.Cell {
 func (b *Board) CheckIfBoardFull() bool {
 	for i := 0; i < b.size; i++ {
 		for j := 0; j < b.size; j++ {
-			if b.cells[i][j].GetMark() == mark.BLANK {
+			if b.cells[i][j].GetMark() == mark.Blank {
 				return false
 			}
 		}

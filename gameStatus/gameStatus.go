@@ -1,10 +1,10 @@
 package gamestatus
 
-// WIN if one player wins
-const WIN string = "WIN!!!"
+// Win if one player wins
+const Win string = "WIN!!!"
 
-// DRAW if its a draw and noone wins
-const DRAW string = "DRAW!!!"
+// Draw if its a draw and noone wins
+const Draw string = "DRAW!!!"
 
-//INPROGRESS if the game is still running
-const INPROGRESS string = "INPROGRESS;!!!"
+//InProgress if the game is still running
+const InProgress string = "INPROGRESS;!!!"

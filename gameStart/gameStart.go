@@ -65,7 +65,7 @@ player2AskNameAgain:
 	//game starts here
 	fmt.Println("********************Game starts*****************************")
 	displayGame(myGame)
-	for ok1 := true; ok1; ok1 = (myGame.GetGameStatus() == gamestatus.INPROGRESS) {
+	for ok1 := true; ok1; ok1 = (myGame.GetGameStatus() == gamestatus.InProgress) {
 		for ok2 := true; ok2; ok2 = (myGame.IsAddToken() == false) {
 			if myGame.IsAddToken() == false {
 				fmt.Println("Cell taken, enter some other board number")
@@ -93,11 +93,11 @@ player2AskNameAgain:
 			myGame.Play(userCellInputInt)
 		}
 		displayGame(myGame)
-		if myGame.GetGameStatus() == gamestatus.WIN {
+		if myGame.GetGameStatus() == gamestatus.Win {
 			fmt.Println(myGame.GetCurrentPlayer().GetName(), "WINS!!!")
 			return
 		}
-		if myGame.GetGameStatus() == gamestatus.DRAW {
+		if myGame.GetGameStatus() == gamestatus.Draw {
 			fmt.Println("No one wins, its a draw")
 			return
 		}

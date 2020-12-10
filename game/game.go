@@ -26,7 +26,7 @@ func NewGame(playersList []*player.Player, size int) *Game {
 		players:       playersList,
 		board:         tempBoard,
 		analyzer:      tempAnalyzer,
-		gameStatus:    gamestatus.INPROGRESS,
+		gameStatus:    gamestatus.InProgress,
 		addToken:      true,
 		currentPlayer: playersList[0],
 		nextPlayer:    playersList[1],
@@ -74,11 +74,11 @@ func (g *Game) Play(boardNumber int) {
 	}
 
 	if g.GetAnalyzer().CheckStatus(g.currentPlayer.GetMark()) {
-		g.gameStatus = gamestatus.WIN
+		g.gameStatus = gamestatus.Win
 		return
 	}
 	if g.GetBoard().CheckIfBoardFull() {
-		g.gameStatus = gamestatus.DRAW
+		g.gameStatus = gamestatus.Draw
 		return
 	}
 	tempPlayer = g.currentPlayer

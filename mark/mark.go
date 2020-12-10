@@ -7,5 +7,5 @@ const O string = "O"
 // X s for X mark
 const X string = "X"
 
-//BLANK is not marked
-const BLANK string = "*"
+// Blank is not marked
+const Blank string = "*"
